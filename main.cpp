@@ -113,6 +113,7 @@ std::vector<WordWithLine> mixContentOfRepeatedWords(const std::vector<WordWithLi
 int main() {
     std::string filename = "EnglishWords.txt";  // Replace with the path to your text file
     std::ofstream exitFile("output.txt");
+    std::ofstream dictionaryBaseWords("base.txt");
 
     std::vector<WordWithLine> wordsWithNumbers = extractWordsWithNumbers(filename);
     std::vector<WordWithLine> final = mixContentOfRepeatedWords(wordsWithNumbers);
@@ -122,6 +123,7 @@ int main() {
     } else {
         for (const WordWithLine& wordWithLine : final) {
             exitFile << wordWithLine.word << wordWithLine.middle << wordWithLine.content << std::endl;
+            dictionaryBaseWords << wordWithLine.word << std::endl;
         }
         std::cout << x << std::endl;
     }
